@@ -1,0 +1,46 @@
+```yaml
+[master]
+172.16.16.x
+[node1]
+172.16.16.x
+[node2]
+172.16.16.x
+[node3]
+172.16.16.x
+
+[master:vars]
+ansible_ssh_user=
+#add once ssh public key has been sent and host checking disabled
+ansible_ssh_private_key_file=/home/masteruser/.ssh/ansible_id_rsa
+
+#remove once ssh public key has been sent
+#ansible_ssh_pass=
+#ansible_become_pass=
+
+[node1:vars]
+ansible_ssh_user=
+#add once ssh public key has been sent and host checking disabled
+ansible_ssh_private_key_file=/home/masteruser/.ssh/ansible_id_rsa
+
+#remove once ssh public key has been sent
+#ansible_ssh_pass=
+#ansible_become_pass=
+
+[node2:vars]
+ansible_ssh_user=
+#add once ssh public key has been sent and host checking disabled
+ansible_ssh_private_key_file=/home/masteruser/.ssh/ansible_id_rsa
+
+#remove once ssh public key has been sent
+#ansible_ssh_pass=
+#ansible_become_pass=
+
+[node3:vars]
+ansible_ssh_user=
+#add once ssh public key has been sent and host checking disabled
+ansible_ssh_private_key_file=/home/masteruser/.ssh/ansible_id_rsa
+
+#remove once ssh public key has been sent
+#ansible_ssh_pass=
+#ansible_become_pass=
+```

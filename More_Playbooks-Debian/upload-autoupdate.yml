@@ -1,0 +1,26 @@
+```yaml
+---
+- name: Upload script to user's home directory
+  hosts: 
+    - linux_host
+    - master
+    - nodes
+  become: true
+
+  vars:
+    username: your_username
+    script_path: /home/your_username/scripts/debian-security-only.sh
+
+  tasks:
+    - name: Create scripts directory if it doesn't exist
+      file:
+        path: "/home/{{ username }}/scripts"
+        state: directory
+        mode: '0755'
+
+    - name: Copy script to user's home/scripts directory
+      ansible.builtin.copy:
+        src: "{{ script_path }}"
+        dest: "/home/{{ username }}/scripts"
+        mode: '0755'
+```

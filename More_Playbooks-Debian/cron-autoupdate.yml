@@ -1,0 +1,28 @@
+```yaml
+---
+- name: Set up cron job for the script
+  hosts:
+    - linux_host
+    - master
+    - nodes
+  become: true
+
+  vars:
+    username: your_username
+    script_name: debian-security-only.sh
+    cron_job_name: security_only_updates
+    cron_schedule: "30 23 * * *"
+
+  tasks:
+    - name: Add cron job
+      cron:
+        name: "{{ cron_job_name }}"
+        user: root
+        job: "/home/{{ username }}/{{ script_name }}"
+        special_time: daily
+#        minute: "{{ cron_schedule.split(' ')[0] }}"
+#        hour: "{{ cron_schedule.split(' ')[1] }}"
+#        day: "{{ cron_schedule.split(' ')[2] }}"
+#        month: "{{ cron_schedule.split(' ')[3] }}"
+#        weekday: "{{ cron_schedule.split(' ')[4] }}"
+```
